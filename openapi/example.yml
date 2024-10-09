@@ -1,67 +1,32 @@
 ---
 openapi: 3.0.3
 info:
-  title: Calculator
+  title: String Operations
   description: |-
-    This service performs basic calculations.
+    This service performs string operations.
   version: 1.0.0
 tags:
-  - name: calculator
-    description: Basic arithmetic operations.
+  - name: String Operations
+    description: Basic string operations.
 paths:
-  /multiply:
+  /upper/{a}:
     get:
       tags:
-        - calculator
-      summary: Multiply two numbers.
-      description: Multiplies two numbers as GET parameters.
-      operationId: multiply
+      - string-operations
+      description: Converts a string to UPPERCASE
+      operationId: upper
       parameters:
         - name: a
-          in: query
+          in: path
           required: true
           schema:
-            type: number
-          example: 5
-        - name: b
-          in: query
-          required: true
-          schema:
-            type: number
-          example: 3
+            type: string
+          example: hello
       responses:
         '200':
           description: Successful operation.
           content:
             text/plain:
               schema:
-                type: number
-              example: 15
-  /divide/{a}/{b}:
-    get:
-      tags:
-        - calculator
-      summary: Divide two numbers.
-      description: Divides two numbers as path parameters.
-      operationId: divide
-      parameters:
-        - name: a
-          in: path
-          required: true
-          schema:
-            type: number
-          example: 10
-        - name: b
-          in: path
-          required: true
-          schema:
-            type: number
-          example: 2
-      responses:
-        '200':
-          description: Successful operation.
-          content:
-            text/plain:
-              schema:
-                type: number
-              example: 5
+                type: string
+              example: HELLO
